@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+:root {
+  --brand: #2563EB;        /* основной акцент (ergotek default) */
+  --ink: #111827;          /* основной текст */
+  --muted: #6B7280;        /* вторичный текст */
+  --bg: #FFFFFF;           /* фон */
+  --radius: 12px;          /* радиус по умолчанию */
+
+  /* Brand colors */
+  --brand-ergotek: #2563EB;
+  --brand-ergotek-dark: #1d4ed8;
+  --brand-abraform: #ea580c;
+  --brand-abraform-dark: #c2410c;
+}
+
+/* Brand-specific стили */
+[data-brand="ergotek"] {
+  --brand: var(--brand-ergotek);
+  --brand-dark: var(--brand-ergotek-dark);
+}
+
+[data-brand="abraform"] {
+  --brand: var(--brand-abraform);
+  --brand-dark: var(--brand-abraform-dark);
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Плавная анимация для dropdown меню */
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeSlideOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+
+/* Анимация переходов между страницами */
+.page-transition.fadeIn {
+  animation: pageSlideIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@keyframes pageSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

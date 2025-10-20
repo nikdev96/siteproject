@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>КлейВуд — эскиз главной страницы</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="description" content="КлейВуд — клеи и абразивные материалы. Подбор решений, TDS/SDS, поставки.">
+</head>
+<body class="min-h-screen bg-white text-slate-900">
+  <!-- Header -->
+  <header class="sticky top-0 z-40 w-full border-b border-slate-200 bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/60">
+    <div class="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="h-9 w-9 rounded-xl bg-gradient-to-br from-blue-600 to-indigo-600" aria-hidden="true"></div>
+        <span class="font-semibold text-lg tracking-tight">КлейВуд</span>
+      </div>
+      <nav class="hidden md:flex items-center gap-6 text-sm text-slate-700">
+        <a href="#catalog" class="hover:text-slate-900">Каталог</a>
+        <a href="#use" class="hover:text-slate-900">По применению</a>
+        <a href="#docs" class="hover:text-slate-900">Документы</a>
+        <a href="#about" class="hover:text-slate-900">О компании</a>
+        <a href="#contacts" class="hover:text-slate-900">Контакты</a>
+      </nav>
+      <a href="#lead" class="inline-flex items-center rounded-xl bg-blue-600 px-4 py-2 text-white text-sm font-medium shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        Запросить КП
+      </a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden">
+    <div class="mx-auto max-w-7xl px-4 py-16 grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <h1 class="text-4xl md:text-5xl font-semibold leading-tight tracking-tight">
+          Клеи и абразивные материалы для стабильного производства
+        </h1>
+        <p class="mt-4 text-lg text-slate-600">
+          Подбор решений под задачу, технологическая поддержка, поставки со склада. Без онлайн‑магазина — только то, что действительно нужно вашему цеху.
+        </p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="#catalog" class="inline-flex items-center rounded-xl bg-blue-600 px-4 py-2 text-white text-sm font-medium shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            Открыть каталог
+          </a>
+          <a href="#lead" class="inline-flex items-center rounded-xl border border-slate-300 px-4 py-2 text-sm font-medium hover:bg-slate-50">
+            Подобрать решение
+          </a>
+        </div>
+        <ul class="mt-8 grid grid-cols-2 gap-4 text-sm text-slate-600">
+          <li class="flex items-start gap-2"><span class="mt-1 h-2 w-2 rounded-full bg-emerald-500" aria-hidden="true"></span><span>Склад в РФ, быстрая логистика</span></li>
+          <li class="flex items-start gap-2"><span class="mt-1 h-2 w-2 rounded-full bg-emerald-500" aria-hidden="true"></span><span>TDS / SDS и техподдержка</span></li>
+          <li class="flex items-start gap-2"><span class="mt-1 h-2 w-2 rounded-full bg-emerald-500" aria-hidden="true"></span><span>Ассортимент: EVA / APAO / PU, ленты/диски/листы</span></li>
+          <li class="flex items-start gap-2"><span class="mt-1 h-2 w-2 rounded-full bg-emerald-500" aria-hidden="true"></span><span>Лид‑форма: КП за 1–2 часа</span></li>
+        </ul>
+      </div>
+      <div>
+        <div class="aspect-[16/10] w-full rounded-2xl bg-gradient-to-br from-slate-100 to-slate-200 border border-slate-200 shadow-inner flex items-center justify-center">
+          <div class="text-center p-6">
+            <div class="mx-auto h-24 w-24 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-500 mb-4" aria-hidden="true"></div>
+            <p class="text-slate-700 font-medium">Визуал продукта (плейсхолдер)</p>
+            <p class="text-slate-500 text-sm mt-1">Здесь будет фото клея/абразивов на нейтральном фоне</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Каталог -->
+  <section id="catalog" class="bg-slate-50 py-14">
+    <div class="mx-auto max-w-7xl px-4">
+      <div class="flex items-end justify-between gap-6">
+        <h2 class="text-3xl font-semibold tracking-tight">Каталог</h2>
+        <a href="#lead" class="text-sm text-blue-700 hover:underline">Нужна помощь в подборе?</a>
+      </div>
+      <div class="mt-8 grid md:grid-cols-2 gap-6">
+        <a href="#categories" class="group rounded-2xl border border-slate-200 bg-white p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center gap-4">
+            <div class="h-12 w-12 rounded-xl bg-slate-900 group-hover:scale-105 transition-transform" aria-hidden="true"></div>
+            <div>
+              <h3 class="text-xl font-semibold">Клеи</h3>
+              <p class="text-slate-600 mt-1">EVA / APAO / PU / PVA, расплавы, стержни, контактные, очистители</p>
+            </div>
+          </div>
+        </a>
+        <a href="#categories" class="group rounded-2xl border border-slate-200 bg-white p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center gap-4">
+            <div class="h-12 w-12 rounded-xl bg-slate-900 group-hover:scale-105 transition-transform" aria-hidden="true"></div>
+            <div>
+              <h3 class="text-xl font-semibold">Абразивы</h3>
+              <p class="text-slate-600 mt-1">Ленты, диски, круги, листы/рулоны, щётки. Зерно: AlOx, SiC, zirconia, ceramic</p>
+            </div>
+          </div>
+        </a>
+      </div>
+      <h3 id="categories" class="mt-12 text-xl font-semibold">Популярные категории</h3>
+      <div class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <!-- Repeatable cards -->
+        <div class="rounded-2xl border border-slate-200 bg-white p-5">
+          <div class="mb-3 h-28 w-full rounded-xl bg-gradient-to-br from-slate-100 to-slate-200" aria-hidden="true"></div>
+          <div class="flex items-start justify-between gap-3">
+            <div>
+              <p class="font-medium">Гранулы EVA (упаковка)</p>
+              <p class="text-sm text-slate-600 mt-1">Краткое описание и типовые области применения.</p>
+            </div>
+            <button class="rounded-lg border border-slate-300 px-3 py-1.5 text-sm hover:bg-slate-50">Открыть</button>
+          </div>
+        </div>
+        <div class="rounded-2xl border border-slate-200 bg-white p-5">
+          <div class="mb-3 h-28 w-full rounded-xl bg-gradient-to-br from-slate-100 to-slate-200" aria-hidden="true"></div>
+          <div class="flex items-start justify-between gap-3">
+            <div>
+              <p class="font-medium">АПАО (длинное открытое время)</p>
+              <p class="text-sm text-slate-600 mt-1">Краткое описание и типовые области применения.</p>
+            </div>
+            <button class="rounded-lg border border-slate-300 px-3 py-1.5 text-sm hover:bg-slate-50">Открыть</button>
+          </div>
+        </div>
+        <div class="rounded-2xl border border-slate-200 bg-white p-5">
+          <div class="mb-3 h-28 w-full rounded-xl bg-gradient-to-br from-slate-100 to-slate-200" aria-hidden="true"></div>
+          <div class="flex items-start justify-between gap-3">
+            <div>
+              <p class="font-medium">Контактные клеи</p>
+              <p class="text-sm text-slate-600 mt-1">Краткое описание и типовые области применения.</p>
+            </div>
+            <button class="rounded-lg border border-slate-300 px-3 py-1.5 text-sm hover:bg-slate-50">Открыть</button>
+          </div>
+        </div>
+        <div class="rounded-2xl border border-slate-200 bg-white p-5">
+          <div class="mb-3 h-28 w-full rounded-xl bg-gradient-to-br from-slate-100 to-slate-200" aria-hidden="true"></div>
+          <div class="flex items-start justify-between gap-3">
+            <div>
+              <p class="font-medium">Клеевые стержни</p>
+              <p class="text-sm text-slate-600 mt-1">Краткое описание и типовые области применения.</p>
+            </div>
+            <button class="rounded-lg border border-slate-300 px-3 py-1.5 text-sm hover:bg-slate-50">Открыть</button>
+          </div>
+        </div>
+        <div class="rounded-2xl border border-slate-200 bg-white p-5">
+          <div class="mb-3 h-28 w-full rounded-xl bg-gradient-to-br from-slate-100 to-slate-200" aria-hidden="true"></div>
+          <div class="flex items-start justify-between gap-3">
+            <div>
+              <p class="font-medium">Абразивные ленты</p>
+              <p class="text-sm text-slate-600 mt-1">Краткое описание и типовые области применения.</p>
+            </div>
+            <button class="rounded-lg border border-slate-300 px-3 py-1.5 text-sm hover:bg-slate-50">Открыть</button>
+          </div>
+        </div>
+        <div class="rounded-2xl border border-slate-200 bg-white p-5">
+          <div class="mb-3 h-28 w-full rounded-xl bg-gradient-to-br from-slate-100 to-slate-200" aria-hidden="true"></div>
+          <div class="flex items-start justify-between gap-3">
+            <div>
+              <p class="font-medium">Абразивные диски и круги</p>
+              <p class="text-sm text-slate-600 mt-1">Краткое описание и типовые области применения.</p>
+            </div>
+            <button class="rounded-lg border border-slate-300 px-3 py-1.5 text-sm hover:bg-slate-50">Открыть</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- По применению -->
+  <section id="use" class="py-14">
+    <div class="mx-auto max-w-7xl px-4">
+      <h2 class="text-3xl font-semibold tracking-tight">По применению</h2>
+      <p class="mt-2 text-slate-600">Выберите вашу задачу — покажем подходящие серии клеёв и абразивов.</p>
+      <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <a href="#lead" class="group rounded-2xl border border-slate-200 p-5 hover:shadow-md bg-white transition-shadow">
+          <div class="mb-3 h-24 w-full rounded-xl bg-gradient-to-br from-indigo-50 to-blue-50 border border-slate-100" aria-hidden="true"></div>
+          <p class="font-medium group-hover:text-slate-900">Упаковка и этикетка</p>
+          <p class="text-sm text-slate-600 mt-1">Подбор решения и спецификации.</p>
+        </a>
+        <a href="#lead" class="group rounded-2xl border border-slate-200 p-5 hover:shadow-md bg-white transition-shadow">
+          <div class="mb-3 h-24 w-full rounded-xl bg-gradient-to-br from-indigo-50 to-blue-50 border border-slate-100" aria-hidden="true"></div>
+          <p class="font-medium group-hover:text-slate-900">Мебель, матрасы, дерево</p>
+          <p class="text-sm text-slate-600 mt-1">Подбор решения и спецификации.</p>
+        </a>
+        <a href="#lead" class="group rounded-2xl border border-slate-200 p-5 hover:shadow-md bg-white transition-shadow">
+          <div class="mb-3 h-24 w-full rounded-xl bg-gradient-to-br from-indigo-50 to-blue-50 border border-slate-100" aria-hidden="true"></div>
+          <p class="font-medium group-hover:text-slate-900">Металлообработка / слесарка</p>
+          <p class="text-sm text-slate-600 mt-1">Подбор решения и спецификации.</p>
+        </a>
+        <a href="#lead" class="group rounded-2xl border border-slate-200 p-5 hover:shadow-md bg-white transition-shadow">
+          <div class="mb-3 h-24 w-full rounded-xl bg-gradient-to-br from-indigo-50 to-blue-50 border border-slate-100" aria-hidden="true"></div>
+          <p class="font-medium group-hover:text-slate-900">Самоклеящиеся материалы (PSA)</p>
+          <p class="text-sm text-slate-600 mt-1">Подбор решения и спецификации.</p>
+        </a>
+        <a href="#lead" class="group rounded-2xl border border-slate-200 p-5 hover:shadow-md bg-white transition-shadow">
+          <div class="mb-3 h-24 w-full rounded-xl bg-gradient-to-br from-indigo-50 to-blue-50 border border-slate-100" aria-hidden="true"></div>
+          <p class="font-medium group-hover:text-slate-900">DIY и ремонт</p>
+          <p class="text-sm text-slate-600 mt-1">Подбор решения и спецификации.</p>
+        </a>
+        <a href="#lead" class="group rounded-2xl border border-slate-200 p-5 hover:shadow-md bg-white transition-shadow">
+          <div class="mb-3 h-24 w-full rounded-xl bg-gradient-to-br from-indigo-50 to-blue-50 border border-slate-100" aria-hidden="true"></div>
+          <p class="font-medium group-hover:text-slate-900">Авто‑сервис и ЛКМ</p>
+          <p class="text-sm text-slate-600 mt-1">Подбор решения и спецификации.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Примеры продуктов -->
+  <section class="bg-slate-50 py-14">
+    <div class="mx-auto max-w-7xl px-4">
+      <h2 class="text-3xl font-semibold tracking-tight">Примеры продуктов</h2>
+      <div class="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="rounded-2xl border border-slate-200 bg-white p-5">
+          <div class="mb-4 aspect-[4/3] w-full rounded-xl bg-gradient-to-br from-slate-100 to-slate-200" aria-hidden="true"></div>
+          <h3 class="text-lg font-semibold">EVA клей для упаковки</h3>
+          <ul class="mt-2 text-sm text-slate-600 space-y-1">
+            <li class="flex items-start gap-2"><span class="mt-2 h-1.5 w-1.5 rounded-full bg-slate-400" aria-hidden="true"></span><span>Вязкость 1200 мПа·с</span></li>
+            <li class="flex items-start gap-2"><span class="mt-2 h-1.5 w-1.5 rounded-full bg-slate-400" aria-hidden="true"></span><span>R&amp;B 80–85 °C</span></li>
+            <li class="flex items-start gap-2"><span class="mt-2 h-1.5 w-1.5 rounded-full bg-slate-400" aria-hidden="true"></span><span>t° нанесения 160–180 °C</span></li>
+            <li class="flex items-start gap-2"><span class="mt-2 h-1.5 w-1.5 rounded-full bg-slate-400" aria-hidden="true"></span><span>Формат: гранулы</span></li>
+          </ul>
+          <div class="mt-4 flex gap-2">
+            <a href="#lead" class="inline-flex items-center rounded-lg bg-blue-600 px-3 py-1.5 text-white text-sm hover:bg-blue-700">Запросить КП</a>
+            <button class="rounded-lg border border-slate-300 px-3 py-1.5 text-sm hover:bg-slate-50">Скачать TDS</button>
+          </div>
+        </div>
+        <div class="rounded-2xl border border-slate-200 bg-white p-5">
+          <div class="mb-4 aspect-[4/3] w-full rounded-xl bg-gradient-to-br from-slate-100 to-slate-200" aria-hidden="true"></div>
+          <h3 class="text-lg font-semibold">АПАО для PSA/склеек</h3>
+          <ul class="mt-2 text-sm text-slate-600 space-y-1">
+            <li class="flex items-start gap-2"><span class="mt-2 h-1.5 w-1.5 rounded-full bg-slate-400" aria-hidden="true"></span><span>Дл. открытое время</span></li>
+            <li class="flex items-start gap-2"><span class="mt-2 h-1.5 w-1.5 rounded-full bg-slate-400" aria-hidden="true"></span><span>Хорошая адгезия к PP/PE</span></li>
+            <li class="flex items-start gap-2"><span class="mt-2 h-1.5 w-1.5 rounded-full bg-slate-400" aria-hidden="true"></span><span>t° нанесения 170–190 °C</span></li>
+            <li class="flex items-start gap-2"><span class="mt-2 h-1.5 w-1.5 rounded-full bg-slate-400" aria-hidden="true"></span><span>Формат: гранулы</span></li>
+          </ul>
+          <div class="mt-4 flex gap-2">
+            <a href="#lead" class="inline-flex items-center rounded-lg bg-blue-600 px-3 py-1.5 text-white text-sm hover:bg-blue-700">Запросить КП</a>
+            <button class="rounded-lg border border-slate-300 px-3 py-1.5 text-sm hover:bg-slate-50">Скачать TDS</button>
+          </div>
+        </div>
+        <div class="rounded-2xl border border-slate-200 bg-white p-5">
+          <div class="mb-4 aspect-[4/3] w-full rounded-xl bg-gradient-to-br from-slate-100 to-slate-200" aria-hidden="true"></div>
+          <h3 class="text-lg font-semibold">Абразивная лента (AlOx)</h3>
+          <ul class="mt-2 text-sm text-slate-600 space-y-1">
+            <li class="flex items-start gap-2"><span class="mt-2 h-1.5 w-1.5 rounded-full bg-slate-400" aria-hidden="true"></span><span>P60–P240</span></li>
+            <li class="flex items-start gap-2"><span class="mt-2 h-1.5 w-1.5 rounded-full bg-slate-400" aria-hidden="true"></span><span>Подложка JF</span></li>
+            <li class="flex items-start gap-2"><span class="mt-2 h-1.5 w-1.5 rounded-full bg-slate-400" aria-hidden="true"></span><span>Шлиф. металла и дерева</span></li>
+            <li class="flex items-start gap-2"><span class="mt-2 h-1.5 w-1.5 rounded-full bg-slate-400" aria-hidden="true"></span><span>Ширина 50–100 мм</span></li>
+          </ul>
+          <div class="mt-4 flex gap-2">
+            <a href="#lead" class="inline-flex items-center rounded-lg bg-blue-600 px-3 py-1.5 text-white text-sm hover:bg-blue-700">Запросить КП</a>
+            <button class="rounded-lg border border-slate-300 px-3 py-1.5 text-sm hover:bg-slate-50">Скачать TDS</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Документы -->
+  <section id="docs" class="py-14">
+    <div class="mx-auto max-w-7xl px-4">
+      <div class="flex items-end justify-between gap-6">
+        <div>
+          <h2 class="text-3xl font-semibold tracking-tight">Документы</h2>
+          <p class="mt-2 text-slate-600">TDS / SDS / инструкции по применению</p>
+        </div>
+        <div class="w-full max-w-xs">
+          <label class="sr-only" for="docsearch">Поиск</label>
+          <input id="docsearch" placeholder="Поиск по документам" class="w-full rounded-xl border border-slate-300 px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+      </div>
+      <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="rounded-2xl border border-slate-200 p-5 bg-white">
+          <div class="flex items-start justify-between gap-3">
+            <div>
+              <p class="font-medium">TDS — Серия 1</p>
+              <p class="text-sm text-slate-600 mt-1">PDF, 2.1 МБ • параметры, применение, совместимые материалы</p>
+            </div>
+            <button class="rounded-lg border border-slate-300 px-3 py-1.5 text-sm hover:bg-slate-50">Скачать</button>
+          </div>
+        </div>
+        <div class="rounded-2xl border border-slate-200 p-5 bg-white">
+          <div class="flex items-start justify-between gap-3">
+            <div>
+              <p class="font-medium">TDS — Серия 2</p>
+              <p class="text-sm text-slate-600 mt-1">PDF, 2.1 МБ • параметры, применение, совместимые материалы</p>
+            </div>
+            <button class="rounded-lg border border-slate-300 px-3 py-1.5 text-sm hover:bg-slate-50">Скачать</button>
+          </div>
+        </div>
+        <div class="rounded-2xl border border-slate-200 p-5 bg-white">
+          <div class="flex items-start justify-between gap-3">
+            <div>
+              <p class="font-medium">TDS — Серия 3</p>
+              <p class="text-sm text-slate-600 mt-1">PDF, 2.1 МБ • параметры, применение, совместимые материалы</p>
+            </div>
+            <button class="rounded-lg border border-slate-300 px-3 py-1.5 text-sm hover:bg-slate-50">Скачать</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- О компании -->
+  <section id="about" class="bg-slate-900 py-14 text-slate-100">
+    <div class="mx-auto max-w-7xl px-4 grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <h2 class="text-3xl font-semibold tracking-tight">КлейВуд — поставки и технологическая поддержка</h2>
+        <p class="mt-3 text-slate-300">
+          Работаем с промышленными клиентами. Помогаем подобрать оптимальные клеи и абразивы под оборудование и материалы, предоставляем TDS/SDS и рекомендации по режимам.
+        </p>
+        <ul class="mt-6 space-y-2 text-slate-300 text-sm">
+          <li class="flex gap-2"><span class="mt-1 h-2 w-2 rounded-full bg-emerald-400" aria-hidden="true"></span><span>Склад в РФ и своевременная логистика</span></li>
+          <li class="flex gap-2"><span class="mt-1 h-2 w-2 rounded-full bg-emerald-400" aria-hidden="true"></span><span>Подбор под PP/PE/дерево/металл/ткани</span></li>
+          <li class="flex gap-2"><span class="mt-1 h-2 w-2 rounded-full bg-emerald-400" aria-hidden="true"></span><span>Тестовые образцы и шлиф‑режимы</span></li>
+        </ul>
+      </div>
+      <div class="rounded-2xl border border-slate-700 bg-gradient-to-br from-slate-800 to-slate-900 p-6">
+        <div class="h-40 w-full rounded-xl bg-slate-800 border border-slate-700 mb-4" aria-hidden="true"></div>
+        <div class="grid grid-cols-2 gap-3 text-sm">
+          <div class="rounded-xl border border-slate-700 p-3">10+ лет в отрасли</div>
+          <div class="rounded-xl border border-slate-700 p-3">Поддержка технолога</div>
+          <div class="rounded-xl border border-slate-700 p-3">Гибкие условия</div>
+          <div class="rounded-xl border border-slate-700 p-3">Документы и сертификаты</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Контакты / Лид-форма -->
+  <section id="contacts" class="py-14">
+    <div class="mx-auto max-w-7xl px-4 grid lg:grid-cols-3 gap-8">
+      <div class="lg:col-span-2">
+        <h2 class="text-3xl font-semibold tracking-tight">Связаться с нами</h2>
+        <p class="mt-2 text-slate-600">Оставьте заявку — вышлем коммерческое предложение и документы.</p>
+        <form id="lead" class="mt-6 rounded-2xl border border-slate-200 bg-white p-6 grid sm:grid-cols-2 gap-4" onsubmit="event.preventDefault()">
+          <div>
+            <label class="text-sm text-slate-600" for="name">Имя</label>
+            <input id="name" class="mt-1 w-full rounded-xl border border-slate-300 px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Иван">
+          </div>
+          <div>
+            <label class="text-sm text-slate-600" for="company">Компания</label>
+            <input id="company" class="mt-1 w-full rounded-xl border border-slate-300 px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="ООО «Пример»">
+          </div>
+          <div>
+            <label class="text-sm text-slate-600" for="phone">Телефон</label>
+            <input id="phone" class="mt-1 w-full rounded-xl border border-slate-300 px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="+7 (___) ___‑__‑__">
+          </div>
+          <div>
+            <label class="text-sm text-slate-600" for="email">Email</label>
+            <input id="email" class="mt-1 w-full rounded-xl border border-slate-300 px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="name@company.ru">
+          </div>
+          <div class="sm:col-span-2">
+            <label class="text-sm text-slate-600" for="interest">Интересующие продукты</label>
+            <input id="interest" class="mt-1 w-full rounded-xl border border-slate-300 px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="EVA гранулы для упаковки, абразивные ленты...">
+          </div>
+          <div class="sm:col-span-2">
+            <label class="text-sm text-slate-600" for="comment">Комментарий</label>
+            <textarea id="comment" rows="4" class="mt-1 w-full rounded-xl border border-slate-300 px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Опишите задачу, материалы, объёмы..."></textarea>
+          </div>
+          <div class="sm:col-span-2 flex items-center justify-between">
+            <p class="text-xs text-slate-500">Отправляя форму, вы соглашаетесь с политикой конфиденциальности.</p>
+            <button class="inline-flex items-center rounded-xl bg-blue-600 px-4 py-2 text-white text-sm font-medium shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">Отправить</button>
+          </div>
+        </form>
+      </div>
+      <aside class="rounded-2xl border border-slate-200 bg-white p-6 h-max">
+        <h3 class="text-lg font-semibold">Контакты</h3>
+        <ul class="mt-3 space-y-2 text-sm text-slate-700">
+          <li>Тел.: +7 (___) ___‑__‑__</li>
+          <li>Email: sales@kleywood.ru</li>
+          <li>Адрес: г. ____ , ул. ________ , д. __</li>
+          <li>Мессенджеры: Telegram / WhatsApp</li>
+        </ul>
+        <div class="mt-4 h-40 w-full rounded-xl bg-gradient-to-br from-slate-100 to-slate-200 border border-slate-200" aria-label="Карта (плейсхолдер)"></div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-200">
+    <div class="mx-auto max-w-7xl px-4 py-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+      <div class="flex items-center gap-3">
+        <div class="h-8 w-8 rounded-lg bg-gradient-to-br from-blue-600 to-indigo-600" aria-hidden="true"></div>
+        <div>
+          <p class="font-semibold">КлейВуд</p>
+          <p class="text-xs text-slate-500">© <span id="year"></span> Все права защищены</p>
+        </div>
+      </div>
+      <nav class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-sm text-slate-700">
+        <a href="#catalog" class="hover:text-slate-900">Каталог</a>
+        <a href="#use" class="hover:text-slate-900">Применения</a>
+        <a href="#docs" class="hover:text-slate-900">Документы</a>
+        <a href="#contacts" class="hover:text-slate-900">Контакты</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- Sticky CTA -->
+  <a href="#lead" class="fixed bottom-4 right-4 inline-flex items-center rounded-full bg-blue-600 px-5 py-3 text-white text-sm font-medium shadow-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+    Запросить КП
+  </a>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

@@ -1,0 +1,158 @@
+[
+  {
+    "id": "hardline-fs-p80",
+    "name": "HardLine FS — P80",
+    "category": "Широкие ленты",
+    "brand": "Abraform",
+    "series": "HardLine FS",
+    "description": "Профессиональная широкая лента для твердых пород дерева и интенсивной обработки",
+    "grain": "P80",
+    "backing": "Тканевая основа X-вес",
+    "bondType": "Синтетическая смола",
+    "width": "150-1350 мм",
+    "length": "По запросу",
+    "applications": [
+      "Калибровка твердых пород",
+      "Шлифовка дуба, бука, ясеня",
+      "Промышленная обработка древесины",
+      "Паркетное производство"
+    ],
+    "features": [
+      "Высокая стойкость к износу",
+      "Оптимально для твердых пород",
+      "Агрессивное съемное действие",
+      "Долгий срок службы"
+    ],
+    "link": "https://www.ergotek.ru/shlifovka-i-polirovka/shlifovalnye-shirokie-lenty/hardline-fs"
+  },
+  {
+    "id": "hardline-fs-p120",
+    "name": "HardLine FS — P120",
+    "category": "Широкие ленты",
+    "brand": "Abraform",
+    "series": "HardLine FS",
+    "description": "Широкая лента для финишной обработки твердых пород дерева",
+    "grain": "P120",
+    "backing": "Тканевая основа X-вес",
+    "bondType": "Синтетическая смола",
+    "width": "150-1350 мм",
+    "length": "По запросу",
+    "applications": [
+      "Финишная шлифовка твердых пород",
+      "Подготовка под лакировку",
+      "Мебельное производство",
+      "Столярные работы"
+    ],
+    "features": [
+      "Равномерное съемное действие",
+      "Чистая поверхность без царапин",
+      "Подходит для лакируемых изделий",
+      "Высокая производительность"
+    ],
+    "link": "https://www.ergotek.ru/shlifovka-i-polirovka/shlifovalnye-shirokie-lenty/hardline-fs"
+  },
+  {
+    "id": "woodline-fa-p100",
+    "name": "WoodLine FA — P100",
+    "category": "Широкие ленты",
+    "brand": "Abraform",
+    "series": "WoodLine FA",
+    "description": "Универсальная лента для мягких и средних пород древесины",
+    "grain": "P100",
+    "backing": "Бумажная основа E-вес",
+    "bondType": "Клеевая связка",
+    "width": "150-1350 мм",
+    "length": "По запросу",
+    "applications": [
+      "Шлифовка сосны, ели",
+      "Обработка МДФ и ДСП",
+      "Калибровка панелей",
+      "Деревообработка"
+    ],
+    "features": [
+      "Оптимальное соотношение цена/качество",
+      "Хорошее съемное действие",
+      "Низкое пылеобразование",
+      "Равномерная поверхность"
+    ],
+    "link": "https://www.ergotek.ru/shlifovka-i-polirovka/shlifovalnye-shirokie-lenty/woodline-fa"
+  },
+  {
+    "id": "woodline-xa-p150",
+    "name": "WoodLine XA — P150",
+    "category": "Широкие ленты",
+    "brand": "Abraform",
+    "series": "WoodLine XA",
+    "description": "Премиальная лента для тонкой шлифовки древесины",
+    "grain": "P150",
+    "backing": "Тканевая основа J-вес",
+    "bondType": "Комбинированная связка",
+    "width": "150-1350 мм",
+    "length": "По запросу",
+    "applications": [
+      "Финишная шлифовка мебели",
+      "Подготовка под окраску",
+      "Тонкая обработка шпона",
+      "Производство дверей и окон"
+    ],
+    "features": [
+      "Превосходное качество поверхности",
+      "Минимальное пылеобразование",
+      "Длительный срок службы",
+      "Антистатические свойства"
+    ],
+    "link": "https://www.ergotek.ru/shlifovka-i-polirovka/shlifovalnye-shirokie-lenty/woodline-xa"
+  },
+  {
+    "id": "lacline-es-p180",
+    "name": "LacLine ES — P180",
+    "category": "Широкие ленты",
+    "brand": "Abraform",
+    "series": "LacLine ES",
+    "description": "Специализированная лента для межслойной шлифовки лакокрасочных покрытий",
+    "grain": "P180",
+    "backing": "Бумажная основа A-вес",
+    "bondType": "Водостойкая связка",
+    "width": "150-1350 мм",
+    "length": "По запросу",
+    "applications": [
+      "Межслойная шлифовка лака",
+      "Обработка окрашенных поверхностей",
+      "Автомобильная промышленность",
+      "Мебельное лакирование"
+    ],
+    "features": [
+      "Устойчивость к засаливанию",
+      "Равномерное матирование",
+      "Не повреждает лакокрасочное покрытие",
+      "Водостойкая конструкция"
+    ],
+    "link": "https://www.ergotek.ru/shlifovka-i-polirovka/shlifovalnye-shirokie-lenty/lacline-es"
+  },
+  {
+    "id": "lacline-es-stearat-p240",
+    "name": "LacLine ES stearat+ — P240",
+    "category": "Широкие ленты",
+    "brand": "Abraform",
+    "series": "LacLine ES stearat+",
+    "description": "Премиальная лента со стеаратным покрытием для финишной обработки лаков",
+    "grain": "P240",
+    "backing": "Бумажная основа A-вес",
+    "bondType": "Водостойкая связка + стеарат",
+    "width": "150-1350 мм",
+    "length": "По запросу",
+    "applications": [
+      "Финишная шлифовка лака",
+      "Подготовка под полировку",
+      "Тонкое матирование",
+      "Премиальная отделка мебели"
+    ],
+    "features": [
+      "Стеаратное покрытие против засаливания",
+      "Максимально тонкое матирование",
+      "Отличное удаление пыли",
+      "Идеальная поверхность под полировку"
+    ],
+    "link": "https://www.ergotek.ru/shlifovka-i-polirovka/shlifovalnye-shirokie-lenty/lacline-es"
+  }
+]
