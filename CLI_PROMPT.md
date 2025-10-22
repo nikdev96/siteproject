@@ -96,3 +96,4 @@ touch src/pages/NewPage.tsx
 npm install -g @axe-core/cli
 npx axe http://localhost:5173
 ```
+

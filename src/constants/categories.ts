@@ -5,11 +5,14 @@ import type { ProductCategory } from '../types/product';
  */
 
 // Категории для навигации и фильтров
+const buildCategoryPath = (category: ProductCategory) =>
+  `/catalog?cat=${encodeURIComponent(category)}`;
+
 export const PRODUCT_CATEGORIES = [
-  { id: 'rods', name: 'Клеевые стержни' as ProductCategory, path: '/catalog?cat=rods' },
-  { id: 'plywood', name: 'Клей для фанеры' as ProductCategory, path: '/catalog?cat=plywood' },
-  { id: 'insulation', name: 'Клеи-расплавы для изоляции' as ProductCategory, path: '/catalog?cat=insulation' },
-  { id: 'psa', name: 'Клеи-расплавы для самоклеящихся материалов' as ProductCategory, path: '/catalog?cat=psa' }
+  { id: 'rods', name: 'Клеевые стержни' as ProductCategory, path: buildCategoryPath('Клеевые стержни') },
+  { id: 'plywood', name: 'Клей для фанеры' as ProductCategory, path: buildCategoryPath('Клей для фанеры') },
+  { id: 'insulation', name: 'Клеи-расплавы для изоляции' as ProductCategory, path: buildCategoryPath('Клеи-расплавы для изоляции') },
+  { id: 'psa', name: 'Клеи-расплавы для самоклеящихся материалов' as ProductCategory, path: buildCategoryPath('Клеи-расплавы для самоклеящихся материалов') }
 ] as const;
 
 // Материалы для формы подбора

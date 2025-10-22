@@ -16,6 +16,17 @@ export default function Header() {
   // Определяем, находимся ли мы на странице абразивов
   const isAbrasivesPage = location.pathname === '/abrasives';
 
+  // Эффект следования за курсором для кнопок
+  const handleButtonMouseMove = (e: React.MouseEvent<HTMLElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    e.currentTarget.style.background = `radial-gradient(circle at ${x}% 50%, #a855f7, #7c3aed, #4f46e5)`;
+  };
+
+  const handleButtonMouseLeave = (e: React.MouseEvent<HTMLElement>) => {
+    e.currentTarget.style.background = 'linear-gradient(90deg, #4f46e5, #7c3aed, #a855f7)';
+  };
+
   // Типизированные продукты
   const products = gluesData as Product[];
 
@@ -169,13 +180,14 @@ export default function Header() {
         <div className="flex items-center gap-3">
           <Link
             to="/contacts#lead"
-            className={`hidden md:inline-flex items-center rounded-xl px-4 py-2 text-white text-sm font-medium shadow-sm hover:shadow-md hover:scale-105 focus:outline-none focus:ring-2 transition-all duration-200 ${
-              isAbrasivesPage
-                ? 'bg-orange-600 hover:bg-orange-700 focus:ring-orange-500'
-                : 'bg-blue-600 hover:bg-blue-700 focus:ring-blue-500'
-            }`}
+            className="hidden md:inline-flex items-center rounded-xl px-4 py-2 text-white text-sm font-medium shadow-sm hover:shadow-md hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200 relative overflow-hidden"
+            onMouseMove={handleButtonMouseMove}
+            onMouseLeave={handleButtonMouseLeave}
+            style={{
+              background: 'linear-gradient(90deg, #4f46e5, #7c3aed, #a855f7)'
+            }}
           >
-            Запросить КП
+            <span className="relative z-10">Запросить КП</span>
           </Link>
 
           {/* Анимированная бургер-кнопка для мобильных */}
@@ -327,14 +339,15 @@ export default function Header() {
               <div className="border-t border-slate-200 pt-4 mt-4">
                 <Link
                   to="/contacts#lead"
-                  className={`block text-center rounded-xl px-4 py-3 text-white font-semibold shadow-lg transition-colors ${
-                    isAbrasivesPage
-                      ? 'bg-orange-600 hover:bg-orange-700'
-                      : 'bg-blue-600 hover:bg-blue-700'
-                  }`}
+                  className="block text-center rounded-xl px-4 py-3 text-white font-semibold shadow-lg transition-all duration-200 relative overflow-hidden"
                   onClick={() => setMobileMenuOpen(false)}
+                  onMouseMove={handleButtonMouseMove}
+                  onMouseLeave={handleButtonMouseLeave}
+                  style={{
+                    background: 'linear-gradient(90deg, #4f46e5, #7c3aed, #a855f7)'
+                  }}
                 >
-                  Запросить КП
+                  <span className="relative z-10">Запросить КП</span>
                 </Link>
               </div>
             </nav>

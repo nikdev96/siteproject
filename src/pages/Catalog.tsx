@@ -1,42 +1,25 @@
-import { useState, useMemo, useEffect } from 'react';
+import { useEffect } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import gluesData from '../data/glues.json';
-import type { Product } from '../types/product';
-import { getCategoryCounts } from '../utils/productFilters';
+import { type GlueProduct } from '../types/glue';
+import { useGlues } from '../hooks/useGlues';
+import { FadeIn } from '../components/FadeIn';
 
 export default function Catalog() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const categoryFromUrl = searchParams.get('cat') || searchParams.get('type') || 'all';
-  const [selectedCategory, setSelectedCategory] = useState<string>(categoryFromUrl);
+
+  // Типизированные продукты
+  const products = gluesData as GlueProduct[];
+
+  // Используем оптимизированный хук
+  const { categories, filteredProducts, selectedCategory, setSelectedCategory } = useGlues(products);
 
   // Синхронизация с URL при изменении параметров
   useEffect(() => {
     const urlCategory = searchParams.get('cat') || searchParams.get('type') || 'all';
     setSelectedCategory(urlCategory);
-  }, [searchParams]);
-
-  // Типизированные продукты
-  const products = gluesData as Product[];
-
-  // Оптимизированный подсчёт категорий с useMemo
-  const categories = useMemo(() => {
-    const categoryCounts = getCategoryCounts(products);
-
-    return [
-      { id: 'all', title: 'Все продукты', count: products.length },
-      { id: 'Клеевые стержни', title: 'Клеевые стержни', count: categoryCounts['Клеевые стержни'] || 0 },
-      { id: 'Клей для фанеры', title: 'Клей для фанеры', count: categoryCounts['Клей для фанеры'] || 0 },
-      { id: 'Клеи-расплавы для изоляции', title: 'Клеи-расплавы для изоляции', count: categoryCounts['Клеи-расплавы для изоляции'] || 0 },
-      { id: 'Клеи-расплавы для самоклеящихся материалов', title: 'Клеи для самоклеящихся материалов', count: categoryCounts['Клеи-расплавы для самоклеящихся материалов'] || 0 }
-    ];
-  }, [products]);
-
-  // Оптимизированная фильтрация с useMemo
-  const filteredProducts = useMemo(() => {
-    return selectedCategory === 'all'
-      ? products
-      : products.filter(p => p.category === selectedCategory);
-  }, [selectedCategory, products]);
+  }, [searchParams, setSelectedCategory]);
 
   // Обработчик изменения категории с обновлением URL
   const handleCategoryChange = (catId: string) => {
@@ -51,30 +34,41 @@ export default function Catalog() {
   return (
     <section className="bg-slate-50 py-10 md:py-14 min-h-[70vh]">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <h1 className="text-3xl font-semibold tracking-tight">Каталог продукции</h1>
-        <p className="mt-2 text-slate-600">Клеи-расплавы и клеевые стержни для промышленного применения</p>
+        <FadeIn>
+          <h1 className="text-3xl font-semibold tracking-tight bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+            Каталог продукции
+          </h1>
+          <p className="mt-2 text-slate-600">Клеи-расплавы и клеевые стержни для промышленного применения</p>
+        </FadeIn>
 
         {/* Категории-фильтры */}
-        <div className="mt-8 flex flex-wrap gap-3">
-          {categories.map((cat) => (
-            <button
-              key={cat.id}
-              onClick={() => handleCategoryChange(cat.id)}
-              className={`px-4 py-2 rounded-xl text-sm font-medium transition-colors ${
-                selectedCategory === cat.id
-                  ? 'bg-blue-600 text-white'
-                  : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-50'
-              }`}
-            >
-              {cat.title} ({cat.count})
-            </button>
-          ))}
-        </div>
+        <FadeIn delay={0.1}>
+          <div className="mt-8 flex flex-wrap gap-3">
+            {categories.map((cat) => (
+              <button
+                key={cat.id}
+                onClick={() => handleCategoryChange(cat.id)}
+                className={`px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 ${
+                  selectedCategory === cat.id
+                    ? 'bg-blue-600 text-white shadow-md scale-105'
+                    : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 hover:border-blue-300 hover:scale-105'
+                }`}
+              >
+                {cat.title} ({cat.count})
+              </button>
+            ))}
+          </div>
+        </FadeIn>
 
-        {/* Продукты */}
+        {/* Продукты с анимацией */}
         <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {filteredProducts.map((product) => (
-            <div key={product.id} className="rounded-2xl border border-slate-200 bg-white p-6 hover:shadow-lg transition-shadow">
+          {filteredProducts.map((product, index) => (
+            <FadeIn key={product.id} delay={0.1 + index * 0.05} fullWidth>
+              <motion.div
+                whileHover={{ y: -10, scale: 1.02 }}
+                transition={{ duration: 0.3, ease: 'easeOut' }}
+                className="rounded-2xl border border-slate-200 bg-white p-6 hover:shadow-2xl hover:border-blue-300 transition-all duration-300 group h-full flex flex-col"
+              >
               <div className="mb-4 aspect-[4/3] w-full rounded-xl bg-gradient-to-br from-blue-50 to-indigo-50 flex items-center justify-center" aria-hidden="true">
                 <div className="text-center">
                   <div className="mx-auto h-16 w-16 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-500 mb-2"></div>
@@ -116,7 +110,7 @@ export default function Catalog() {
                 )}
               </div>
 
-              <div className="border-t border-slate-200 pt-3 mb-4">
+              <div className="border-t border-slate-200 pt-3 mb-4 flex-1">
                 <p className="text-xs text-slate-500 mb-2">Применение:</p>
                 <div className="flex flex-wrap gap-1">
                   {product.applications.slice(0, 3).map((app, idx) => (
@@ -127,7 +121,7 @@ export default function Catalog() {
                 </div>
               </div>
 
-              <div className="flex gap-2">
+              <div className="flex gap-2 mt-auto">
                 <Link
                   to={`/contacts#lead`}
                   className="flex-1 text-center rounded-lg bg-blue-600 px-3 py-2 text-white text-sm font-medium hover:bg-blue-700"
@@ -143,7 +137,8 @@ export default function Catalog() {
                   TDS
                 </button>
               </div>
-            </div>
+            </motion.div>
+          </FadeIn>
           ))}
         </div>
 

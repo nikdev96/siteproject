@@ -3,6 +3,7 @@ import Hero from '../components/Hero';
 import Features from '../components/Features';
 import ProductCard from '../components/ProductCard';
 import GlueSelector from '../components/GlueSelector';
+import { FadeIn } from '../components/FadeIn';
 import gluesData from '../data/glues.json';
 
 export default function Home() {
@@ -19,31 +20,53 @@ export default function Home() {
       {/* Каталог */}
       <section id="catalog" className="bg-slate-50 py-10 md:py-14">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex items-end justify-between gap-6">
-            <h2 className="text-3xl font-semibold tracking-tight">Каталог</h2>
-            <Link to="/contacts#lead" className="text-sm text-blue-700 hover:underline">
-              Нужна помощь в подборе?
-            </Link>
-          </div>
+          <FadeIn>
+            <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+              <h2 className="text-3xl font-semibold tracking-tight bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Каталог</h2>
+              <Link to="/contacts#lead" className="text-sm text-blue-700 hover:text-blue-900 transition-colors duration-200">
+                Нужна помощь в подборе? →
+              </Link>
+            </div>
+          </FadeIn>
           <div className="mt-8 grid md:grid-cols-2 gap-6">
-            <Link to="/catalog" className="group rounded-2xl border border-slate-200 bg-white p-6 hover:shadow-md transition-shadow">
-              <div className="flex items-center gap-4">
-                <div className="h-12 w-12 rounded-xl bg-slate-900 group-hover:scale-105 transition-transform" aria-hidden="true"></div>
-                <div>
-                  <h3 className="text-xl font-semibold">Клеи</h3>
-                  <p className="text-slate-600 mt-1">EVA / APAO / PU / PVA, расплавы, стержни, контактные, очистители</p>
+            <FadeIn delay={0.1} fullWidth>
+              <Link to="/catalog" className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-6 hover:shadow-2xl hover:border-blue-300 transition-all duration-300 h-full flex">
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-indigo-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="relative flex items-center gap-4 w-full">
+                  <div className="h-16 w-16 flex-shrink-0 rounded-xl bg-gradient-to-br from-blue-600 to-indigo-600 flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                    </svg>
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-xl font-semibold group-hover:text-blue-600 transition-colors duration-200">Клеи</h3>
+                    <p className="text-slate-600 text-sm mt-1 group-hover:text-slate-700 transition-colors">EVA / APAO / PU / PVA, расплавы, стержни</p>
+                  </div>
+                  <svg className="w-5 h-5 flex-shrink-0 text-slate-400 group-hover:text-blue-600 group-hover:translate-x-1 transition-all duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
                 </div>
-              </div>
-            </Link>
-            <Link to="/abrasives" className="group rounded-2xl border border-orange-300 bg-orange-50 p-6 hover:shadow-md transition-shadow">
-              <div className="flex items-center gap-4">
-                <div className="h-12 w-12 rounded-xl bg-gradient-to-br from-orange-500 to-red-600 group-hover:scale-105 transition-transform" aria-hidden="true"></div>
-                <div>
-                  <h3 className="text-xl font-semibold text-slate-900">Абразивы Abraform</h3>
-                  <p className="text-slate-600 mt-1">Широкие ленты для деревообработки и ЛКМ</p>
+              </Link>
+            </FadeIn>
+            <FadeIn delay={0.2} fullWidth>
+              <Link to="/abrasives" className="group relative overflow-hidden rounded-2xl border border-orange-200 bg-orange-50 p-6 hover:shadow-2xl hover:border-orange-400 transition-all duration-300 h-full flex">
+                <div className="absolute inset-0 bg-gradient-to-br from-orange-100 to-red-100 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="relative flex items-center gap-4 w-full">
+                  <div className="h-16 w-16 flex-shrink-0 rounded-xl bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-xl font-semibold text-slate-900 group-hover:text-orange-600 transition-colors duration-200">Абразивы Abraform</h3>
+                    <p className="text-slate-600 text-sm mt-1 group-hover:text-slate-700 transition-colors">Широкие ленты для деревообработки и ЛКМ</p>
+                  </div>
+                  <svg className="w-5 h-5 flex-shrink-0 text-slate-400 group-hover:text-orange-600 group-hover:translate-x-1 transition-all duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
                 </div>
-              </div>
-            </Link>
+              </Link>
+            </FadeIn>
           </div>
         </div>
       </section>
@@ -51,8 +74,10 @@ export default function Home() {
       {/* По применению */}
       <section id="use" className="py-10 md:py-14">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-semibold tracking-tight">По применению</h2>
-          <p className="mt-2 text-slate-600">Выберите вашу задачу — покажем подходящие серии клеёв и абразивов.</p>
+          <FadeIn>
+            <h2 className="text-3xl font-semibold tracking-tight bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">По применению</h2>
+            <p className="mt-2 text-slate-600">Выберите вашу задачу — покажем подходящие серии клеёв и абразивов.</p>
+          </FadeIn>
           <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {[
               'Упаковка и этикетка',
@@ -61,12 +86,19 @@ export default function Home() {
               'Самоклеящиеся материалы (PSA)',
               'DIY и ремонт',
               'Авто‑сервис и ЛКМ'
-            ].map((item) => (
-              <Link key={item} to="/applications" className="group rounded-2xl border border-slate-200 p-5 hover:shadow-md bg-white transition-shadow">
-                <div className="mb-3 h-24 w-full rounded-xl bg-gradient-to-br from-indigo-50 to-blue-50 border border-slate-100" aria-hidden="true"></div>
-                <p className="font-medium group-hover:text-slate-900">{item}</p>
-                <p className="text-sm text-slate-600 mt-1">Подбор решения и спецификации.</p>
-              </Link>
+            ].map((item, index) => (
+              <FadeIn key={item} delay={0.1 + index * 0.05} fullWidth>
+                <Link to="/applications" className="group relative overflow-hidden rounded-2xl border border-slate-200 p-5 hover:shadow-xl hover:border-blue-200 bg-white transition-all duration-300 h-full flex flex-col">
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-indigo-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="relative flex flex-col h-full">
+                    <div className="mb-3 h-24 w-full rounded-xl bg-gradient-to-br from-indigo-50 to-blue-50 border border-slate-100 group-hover:scale-105 group-hover:shadow-md transition-all duration-300 flex items-center justify-center flex-shrink-0">
+                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-indigo-500 opacity-20 group-hover:opacity-30 transition-opacity"></div>
+                    </div>
+                    <p className="font-medium text-slate-900 group-hover:text-blue-600 transition-colors duration-200">{item}</p>
+                    <p className="text-sm text-slate-600 mt-1 group-hover:text-slate-700 transition-colors">Подбор решения и спецификации →</p>
+                  </div>
+                </Link>
+              </FadeIn>
             ))}
           </div>
         </div>
@@ -75,25 +107,28 @@ export default function Home() {
       {/* Примеры продуктов */}
       <section className="bg-slate-50 py-10 md:py-14">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex items-end justify-between gap-6">
-            <h2 className="text-3xl font-semibold tracking-tight">Наша продукция</h2>
-            <Link to="/catalog" className="text-sm text-blue-700 hover:underline">
-              Смотреть весь каталог →
-            </Link>
-          </div>
+          <FadeIn>
+            <div className="flex items-end justify-between gap-6">
+              <h2 className="text-3xl font-semibold tracking-tight bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Наша продукция</h2>
+              <Link to="/catalog" className="text-sm text-blue-700 hover:underline">
+                Смотреть весь каталог →
+              </Link>
+            </div>
+          </FadeIn>
           <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {gluesData.slice(0, 3).map((product) => (
-              <ProductCard
-                key={product.id}
-                title={product.name}
-                specs={[
-                  `Химия: ${product.chemistry}`,
-                  ...('workingTemp' in product ? [`Рабочая t°: ${product.workingTemp}`] : []),
-                  ...('applicationTemp' in product ? [`t° нанесения: ${product.applicationTemp}`] : []),
-                  ...product.features ? [product.features[0]] : []
-                ]}
-                onDownloadTDS={() => console.log('Download TDS')}
-              />
+            {gluesData.slice(0, 3).map((product, index) => (
+              <FadeIn key={product.id} delay={0.1 + index * 0.1}>
+                <ProductCard
+                  title={product.name}
+                  specs={[
+                    `Химия: ${product.chemistry}`,
+                    ...('workingTemp' in product ? [`Рабочая t°: ${product.workingTemp}`] : []),
+                    ...('applicationTemp' in product ? [`t° нанесения: ${product.applicationTemp}`] : []),
+                    ...product.features ? [product.features[0]] : []
+                  ]}
+                  onDownloadTDS={() => console.log('Download TDS')}
+                />
+              </FadeIn>
             ))}
           </div>
         </div>
@@ -102,8 +137,8 @@ export default function Home() {
       {/* О компании */}
       <section id="about" className="bg-slate-900 py-10 md:py-14 text-slate-100">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-8 md:gap-10 items-center">
-          <div>
-            <h2 className="text-3xl font-semibold tracking-tight">КлейВуд — поставки и технологическая поддержка</h2>
+          <FadeIn direction="left">
+            <h2 className="text-3xl font-semibold tracking-tight bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">КлейВуд — поставки и технологическая поддержка</h2>
             <p className="mt-3 text-slate-300">
               Работаем с промышленными клиентами. Помогаем подобрать оптимальные клеи и абразивы под оборудование и материалы, предоставляем TDS/SDS и рекомендации по режимам.
             </p>
@@ -121,16 +156,18 @@ export default function Home() {
                 <span>Тестовые образцы и шлиф‑режимы</span>
               </li>
             </ul>
-          </div>
-          <div className="rounded-2xl border border-slate-700 bg-gradient-to-br from-slate-800 to-slate-900 p-6">
-            <div className="h-40 w-full rounded-xl bg-slate-800 border border-slate-700 mb-4" aria-hidden="true"></div>
-            <div className="grid grid-cols-2 gap-3 text-sm">
-              <div className="rounded-xl border border-slate-700 p-3">10+ лет в отрасли</div>
-              <div className="rounded-xl border border-slate-700 p-3">Поддержка технолога</div>
-              <div className="rounded-xl border border-slate-700 p-3">Гибкие условия</div>
-              <div className="rounded-xl border border-slate-700 p-3">Документы и сертификаты</div>
+          </FadeIn>
+          <FadeIn direction="right" delay={0.2}>
+            <div className="rounded-2xl border border-slate-700 bg-gradient-to-br from-slate-800 to-slate-900 p-6">
+              <div className="h-40 w-full rounded-xl bg-slate-800 border border-slate-700 mb-4" aria-hidden="true"></div>
+              <div className="grid grid-cols-2 gap-3 text-sm">
+                <div className="rounded-xl border border-slate-700 p-3">10+ лет в отрасли</div>
+                <div className="rounded-xl border border-slate-700 p-3">Поддержка технолога</div>
+                <div className="rounded-xl border border-slate-700 p-3">Гибкие условия</div>
+                <div className="rounded-xl border border-slate-700 p-3">Документы и сертификаты</div>
+              </div>
             </div>
-          </div>
+          </FadeIn>
         </div>
       </section>
     </>

@@ -1,6 +1,17 @@
 import { Link } from 'react-router-dom';
 
 export default function Hero() {
+  // Эффект следования за курсором
+  const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    e.currentTarget.style.background = `radial-gradient(circle at ${x}% 50%, #a855f7, #7c3aed, #4f46e5)`;
+  };
+
+  const handleMouseLeave = (e: React.MouseEvent<HTMLElement>) => {
+    e.currentTarget.style.background = 'linear-gradient(90deg, #4f46e5, #7c3aed, #a855f7)';
+  };
+
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 py-12 md:py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-8 md:gap-12 items-center">
@@ -14,9 +25,14 @@ export default function Hero() {
           <div className="mt-6 md:mt-8 flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
             <Link
               to="/catalog"
-              className="px-6 sm:px-8 py-3 sm:py-4 bg-[color:var(--brand)] text-white rounded-xl font-semibold text-base sm:text-lg hover:scale-105 hover:shadow-xl transition-all duration-200 text-center"
+              className="px-6 sm:px-8 py-3 sm:py-4 text-white rounded-xl font-semibold text-base sm:text-lg hover:scale-105 hover:shadow-xl transition-all duration-200 text-center relative overflow-hidden"
+              onMouseMove={handleMouseMove}
+              onMouseLeave={handleMouseLeave}
+              style={{
+                background: 'linear-gradient(90deg, #4f46e5, #7c3aed, #a855f7)'
+              }}
             >
-              Открыть каталог
+              <span className="relative z-10">Открыть каталог</span>
             </Link>
             <Link
               to="/contacts"
