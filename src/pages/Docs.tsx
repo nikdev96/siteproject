@@ -7,14 +7,14 @@ export default function Docs() {
   const [searchInput, setSearchInput] = useState('');
   const searchQuery = useDebounce(searchInput, 300); // 300мс задержка
 
-  const documents = [
+  const documents = useMemo(() => [
     { title: 'TDS — Серия 1', description: 'PDF, 2.1 МБ • параметры, применение, совместимые материалы' },
     { title: 'TDS — Серия 2', description: 'PDF, 2.1 МБ • параметры, применение, совместимые материалы' },
     { title: 'TDS — Серия 3', description: 'PDF, 2.1 МБ • параметры, применение, совместимые материалы' },
     { title: 'SDS — EVA клеи', description: 'PDF, 1.8 МБ • паспорт безопасности, химический состав' },
     { title: 'SDS — АПАО клеи', description: 'PDF, 1.9 МБ • паспорт безопасности, химический состав' },
     { title: 'Инструкция по применению', description: 'PDF, 3.2 МБ • рекомендации по использованию и хранению' }
-  ];
+  ], []);
 
   const handleDownload = (title: string) => {
     console.log('Download:', title);
@@ -29,7 +29,7 @@ export default function Docs() {
       doc.title.toLowerCase().includes(query) ||
       doc.description.toLowerCase().includes(query)
     );
-  }, [searchQuery]);
+  }, [searchQuery, documents]);
 
   return (
     <section className="py-10 md:py-14 min-h-[70vh]">

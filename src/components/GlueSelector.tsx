@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FadeIn } from './FadeIn';
+import { GradientButton } from './GradientButton';
 import gluesData from '../data/glues.json';
 import type { Product } from '../types/product';
 import type { MaterialValue, ApplicationValue } from '../constants/categories';
@@ -16,17 +16,6 @@ export default function GlueSelector() {
 
   // Типизированные продукты
   const products = gluesData as Product[];
-
-  // Эффект следования курсора для градиента
-  const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width) * 100;
-    e.currentTarget.style.background = `radial-gradient(circle at ${x}% 50%, #a855f7, #7c3aed, #4f46e5)`;
-  };
-
-  const handleMouseLeave = (e: React.MouseEvent<HTMLElement>) => {
-    e.currentTarget.style.background = 'linear-gradient(90deg, #4f46e5, #7c3aed, #a855f7)';
-  };
 
   const handleSearch = () => {
     // Используем утилиту фильтрации
@@ -134,26 +123,13 @@ export default function GlueSelector() {
 
             {/* Кнопки */}
             <div className="flex flex-col sm:flex-row gap-3">
-              <motion.button
+              <GradientButton
                 onClick={handleSearch}
                 disabled={!material && !application}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="flex-1 rounded-xl px-4 sm:px-6 py-3 text-white text-xs sm:text-sm font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 shadow-md hover:shadow-lg relative overflow-hidden gradient-button"
-                onMouseMove={(e) => {
-                  const rect = e.currentTarget.getBoundingClientRect();
-                  const x = ((e.clientX - rect.left) / rect.width) * 100;
-                  e.currentTarget.style.background = `radial-gradient(circle at ${x}% 50%, #a855f7, #7c3aed, #4f46e5)`;
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background = 'linear-gradient(90deg, #4f46e5, #7c3aed, #a855f7)';
-                }}
-                style={{
-                  background: 'linear-gradient(90deg, #4f46e5, #7c3aed, #a855f7)'
-                }}
+                className="flex-1 text-xs sm:text-sm"
               >
-                <span className="relative z-10">Подобрать клей</span>
-              </motion.button>
+                Подобрать клей
+              </GradientButton>
               <motion.button
                 onClick={handleReset}
                 whileHover={{ scale: 1.02 }}
@@ -203,17 +179,13 @@ export default function GlueSelector() {
                             ))}
                           </div>
                         </div>
-                        <Link
+                        <GradientButton
+                          as="link"
                           to="/contacts#lead"
-                          className="w-full sm:w-auto text-center rounded-lg px-4 py-2 text-white text-xs sm:text-sm font-medium whitespace-nowrap transition-all duration-200 shadow-sm hover:shadow-md relative overflow-hidden group"
-                          onMouseMove={handleMouseMove}
-                          onMouseLeave={handleMouseLeave}
-                          style={{
-                            background: 'linear-gradient(90deg, #4f46e5, #7c3aed, #a855f7)'
-                          }}
+                          className="w-full sm:w-auto text-xs sm:text-sm whitespace-nowrap"
                         >
-                          <span className="relative z-10">Запросить КП</span>
-                        </Link>
+                          Запросить КП
+                        </GradientButton>
                       </div>
                     </motion.div>
                   ))}
@@ -228,17 +200,13 @@ export default function GlueSelector() {
                   className="text-center py-8"
                 >
                   <p className="text-slate-500 mb-4">Не нашли подходящий продукт? Свяжитесь с нами для консультации.</p>
-                  <Link
+                  <GradientButton
+                    as="link"
                     to="/contacts"
-                    className="inline-flex items-center rounded-xl px-6 py-3 text-white text-sm font-medium transition-all duration-200 shadow-md hover:shadow-lg relative overflow-hidden group"
-                    onMouseMove={handleMouseMove}
-                    onMouseLeave={handleMouseLeave}
-                    style={{
-                      background: 'linear-gradient(90deg, #4f46e5, #7c3aed, #a855f7)'
-                    }}
+                    className="text-sm"
                   >
-                    <span className="relative z-10">Связаться с нами</span>
-                  </Link>
+                    Связаться с нами
+                  </GradientButton>
                 </motion.div>
               )}
             </motion.div>

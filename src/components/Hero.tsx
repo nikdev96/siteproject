@@ -1,19 +1,91 @@
 import { Link } from 'react-router-dom';
+import { GradientButton } from './GradientButton';
 
 export default function Hero() {
-  // Эффект следования за курсором
-  const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width) * 100;
-    e.currentTarget.style.background = `radial-gradient(circle at ${x}% 50%, #a855f7, #7c3aed, #4f46e5)`;
-  };
-
-  const handleMouseLeave = (e: React.MouseEvent<HTMLElement>) => {
-    e.currentTarget.style.background = 'linear-gradient(90deg, #4f46e5, #7c3aed, #a855f7)';
-  };
-
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 py-12 md:py-20 lg:py-28">
+    <>
+      {/* CSS для анимированных кнопок */}
+      <style>{`
+        @keyframes rotate-gradient {
+          0% {
+            --angle: 0deg;
+          }
+          100% {
+            --angle: 360deg;
+          }
+        }
+
+        @property --angle {
+          syntax: '<angle>';
+          initial-value: 0deg;
+          inherits: false;
+        }
+
+        .hero-button-animated {
+          position: relative;
+          padding: 12px 32px;
+          border-radius: 12px;
+          isolation: isolate;
+          display: inline-block;
+          text-align: center;
+          font-weight: 600;
+          transition: all 0.3s ease;
+        }
+
+        .hero-button-animated::before {
+          content: '';
+          position: absolute;
+          inset: -2px;
+          border-radius: 12px;
+          background: conic-gradient(
+            from var(--angle, 0deg),
+            #7dd3fc,
+            #60a5fa,
+            #818cf8,
+            #a78bfa,
+            #c084fc,
+            #a78bfa,
+            #818cf8,
+            #60a5fa,
+            #7dd3fc
+          );
+          opacity: 0;
+          transition: opacity 0.5s ease;
+          z-index: -1;
+          --angle: 0deg;
+          will-change: opacity;
+        }
+
+        .hero-button-animated::after {
+          content: '';
+          position: absolute;
+          inset: 0;
+          border-radius: 10px;
+          background: rgba(255, 255, 255, 0.95);
+          backdrop-filter: blur(10px);
+          -webkit-backdrop-filter: blur(10px);
+          z-index: -1;
+        }
+
+        .hero-button-animated:hover::before {
+          opacity: 1;
+          animation: rotate-gradient 3s linear infinite;
+        }
+
+        .hero-button-animated:focus-visible {
+          outline: 2px solid #60a5fa;
+          outline-offset: 2px;
+        }
+      `}</style>
+      <section
+        className="relative overflow-hidden py-12 md:py-20 lg:py-28"
+        style={{
+          backdropFilter: 'blur(20px) saturate(180%)',
+          WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+          backgroundColor: 'rgba(248, 250, 252, 0.5)',
+          backgroundImage: 'linear-gradient(135deg, rgba(241, 245, 249, 0.4) 0%, rgba(219, 234, 254, 0.4) 50%, rgba(238, 242, 255, 0.4) 100%)'
+        }}
+      >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-8 md:gap-12 items-center">
         <div>
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight text-[color:var(--ink)]">
@@ -23,20 +95,16 @@ export default function Hero() {
             Прямые поставки от производителя Ergotek. Технические документы. Поддержка специалистов.
           </p>
           <div className="mt-6 md:mt-8 flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
-            <Link
+            <GradientButton
+              as="link"
               to="/catalog"
-              className="px-6 sm:px-8 py-3 sm:py-4 text-white rounded-xl font-semibold text-base sm:text-lg hover:scale-105 hover:shadow-xl transition-all duration-200 text-center relative overflow-hidden"
-              onMouseMove={handleMouseMove}
-              onMouseLeave={handleMouseLeave}
-              style={{
-                background: 'linear-gradient(90deg, #4f46e5, #7c3aed, #a855f7)'
-              }}
+              className="px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg"
             >
-              <span className="relative z-10">Открыть каталог</span>
-            </Link>
+              Открыть каталог
+            </GradientButton>
             <Link
               to="/contacts"
-              className="px-6 sm:px-8 py-3 sm:py-4 border-2 border-slate-300 bg-white rounded-xl font-semibold text-base sm:text-lg hover:bg-slate-50 hover:border-slate-400 transition-all duration-200 text-center"
+              className="hero-button-animated text-slate-700 hover:text-slate-900 text-base sm:text-lg"
             >
               Связаться с нами
             </Link>
@@ -79,6 +147,7 @@ export default function Hero() {
           <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-indigo-200 rounded-full opacity-20 blur-2xl"></div>
         </div>
       </div>
-    </section>
+      </section>
+    </>
   );
 }

@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { GradientButton } from '../components/GradientButton';
 import gluesData from '../data/glues.json';
 import { type GlueProduct } from '../types/glue';
 import { useGlues } from '../hooks/useGlues';
@@ -122,13 +123,14 @@ export default function Catalog() {
               </div>
 
               <div className="flex gap-2 mt-auto">
-                <Link
+                <GradientButton
+                  as="link"
                   to={`/contacts#lead`}
-                  className="flex-1 text-center rounded-lg bg-blue-600 px-3 py-2 text-white text-sm font-medium hover:bg-blue-700"
+                  className="flex-1 text-sm"
                   aria-label={`Запросить коммерческое предложение для ${product.name}`}
                 >
                   Запросить КП
-                </Link>
+                </GradientButton>
                 <button
                   className="rounded-lg border border-slate-300 px-3 py-2 text-sm hover:bg-slate-50"
                   aria-label={`Скачать техническую документацию для ${product.name}`}

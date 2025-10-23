@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { GradientButton } from './GradientButton';
 
 interface ProductCardProps {
   title: string;
@@ -8,16 +8,6 @@ interface ProductCardProps {
 }
 
 export default function ProductCard({ title, specs, onDownloadTDS }: ProductCardProps) {
-  // Эффект следования за курсором
-  const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width) * 100;
-    e.currentTarget.style.background = `radial-gradient(circle at ${x}% 50%, #a855f7, #7c3aed, #4f46e5)`;
-  };
-
-  const handleMouseLeave = (e: React.MouseEvent<HTMLElement>) => {
-    e.currentTarget.style.background = 'linear-gradient(90deg, #4f46e5, #7c3aed, #a855f7)';
-  };
 
   return (
     <motion.div
@@ -51,17 +41,13 @@ export default function ProductCard({ title, specs, onDownloadTDS }: ProductCard
           ))}
         </ul>
         <div className="mt-4 flex gap-2">
-          <Link
+          <GradientButton
+            as="link"
             to="/contacts#lead"
-            className="flex-1 text-center inline-flex items-center justify-center rounded-lg px-3 py-2 text-white text-sm font-medium hover:shadow-lg hover:scale-105 transition-all duration-200 relative overflow-hidden"
-            onMouseMove={handleMouseMove}
-            onMouseLeave={handleMouseLeave}
-            style={{
-              background: 'linear-gradient(90deg, #4f46e5, #7c3aed, #a855f7)'
-            }}
+            className="flex-1 text-sm"
           >
-            <span className="relative z-10">Запросить КП</span>
-          </Link>
+            Запросить КП
+          </GradientButton>
           <button
             onClick={onDownloadTDS}
             className="rounded-lg border border-slate-300 px-3 py-2 text-sm font-medium hover:bg-slate-50 hover:border-blue-300 hover:text-blue-600 transition-all duration-200"

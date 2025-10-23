@@ -1,31 +1,21 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useState, useMemo, useEffect } from 'react';
 import { Dialog, DialogPanel, Transition, TransitionChild } from '@headlessui/react';
+import { GradientButton } from './GradientButton';
 import { PRODUCT_CATEGORIES } from '../constants/categories';
 import gluesData from '../data/glues.json';
 import type { Product } from '../types/product';
 import { getCategoryCounts } from '../utils/productFilters';
+import { usePrefetch } from '../hooks/usePrefetch';
 
 export default function Header() {
-  const location = useLocation();
   const [catalogOpen, setCatalogOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [closeTimeout, setCloseTimeout] = useState<number | null>(null);
 
-  // Определяем, находимся ли мы на странице абразивов
-  const isAbrasivesPage = location.pathname === '/abrasives';
-
-  // Эффект следования за курсором для кнопок
-  const handleButtonMouseMove = (e: React.MouseEvent<HTMLElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width) * 100;
-    e.currentTarget.style.background = `radial-gradient(circle at ${x}% 50%, #a855f7, #7c3aed, #4f46e5)`;
-  };
-
-  const handleButtonMouseLeave = (e: React.MouseEvent<HTMLElement>) => {
-    e.currentTarget.style.background = 'linear-gradient(90deg, #4f46e5, #7c3aed, #a855f7)';
-  };
+  // Префетчинг для мгновенной навигации
+  const { prefetchPage } = usePrefetch();
 
   // Типизированные продукты
   const products = gluesData as Product[];
@@ -39,6 +29,91 @@ export default function Header() {
       count: counts[cat.name] || 0
     }));
   }, [products]);
+
+  // Инжектируем CSS анимацию в head только для кнопки "Каталог клеев"
+  useEffect(() => {
+    const styleId = 'nav-catalog-button-styles';
+    if (!document.getElementById(styleId)) {
+      const style = document.createElement('style');
+      style.id = styleId;
+      style.textContent = `
+        @property --angle {
+          syntax: '<angle>';
+          initial-value: 0deg;
+          inherits: false;
+        }
+
+        @keyframes rotate-gradient {
+          0% {
+            --angle: 0deg;
+          }
+          100% {
+            --angle: 360deg;
+          }
+        }
+
+        .nav-item-animated {
+          position: relative;
+          padding: 8px 16px;
+          border-radius: 24px;
+          isolation: isolate;
+          display: inline-flex;
+          align-items: center;
+          gap: 0.25rem;
+          transition: all 0.3s ease;
+          --angle: 0deg;
+        }
+
+        .nav-item-animated::before {
+          content: '';
+          position: absolute;
+          inset: -2px;
+          border-radius: 24px;
+          background: conic-gradient(
+            from var(--angle),
+            #7dd3fc,
+            #60a5fa,
+            #818cf8,
+            #a78bfa,
+            #c084fc,
+            #a78bfa,
+            #818cf8,
+            #60a5fa,
+            #7dd3fc
+          );
+          opacity: 0;
+          transition: opacity 0.5s ease;
+          z-index: -1;
+          will-change: opacity;
+        }
+
+        .nav-item-animated::after {
+          content: '';
+          position: absolute;
+          inset: 0;
+          border-radius: 22px;
+          background: rgba(255, 255, 255, 0.9);
+          backdrop-filter: blur(10px);
+          -webkit-backdrop-filter: blur(10px);
+          z-index: -1;
+        }
+
+        .nav-item-animated:hover {
+          animation: rotate-gradient 3s linear infinite;
+        }
+
+        .nav-item-animated:hover::before {
+          opacity: 1;
+        }
+
+        .nav-item-animated:focus-visible {
+          outline: 2px solid #60a5fa;
+          outline-offset: 2px;
+        }
+      `;
+      document.head.appendChild(style);
+    }
+  }, []);
 
   // Закрытие мобильного меню при изменении размера экрана
   useEffect(() => {
@@ -83,7 +158,14 @@ export default function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-slate-200 bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/70 shadow-sm">
+    <header
+      className="sticky top-0 z-40 w-full border-b border-white/20 shadow-lg shadow-slate-900/5"
+      style={{
+        backdropFilter: 'blur(20px) saturate(180%)',
+        WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+        backgroundColor: 'rgba(255, 255, 255, 0.72)'
+      }}
+    >
       <div className="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-3 group">
           <div className="h-9 w-9 rounded-xl bg-gradient-to-br from-blue-600 to-indigo-600 group-hover:scale-110 transition-transform" aria-hidden="true"></div>
@@ -98,7 +180,7 @@ export default function Header() {
             onMouseLeave={handleMouseLeave}
           >
             <button
-              className="hover:text-slate-900 flex items-center gap-1 py-2 transition-colors"
+              className="nav-item-animated hover:text-slate-900 transition-colors"
               aria-expanded={catalogOpen}
               aria-haspopup="true"
               aria-label="Открыть меню каталога"
@@ -163,32 +245,44 @@ export default function Header() {
             )}
           </div>
 
-          <Link to="/abrasives" className="hover:text-slate-900 transition-colors">
+          <Link
+            to="/abrasives"
+            className="nav-item-animated hover:text-slate-900 transition-colors"
+            onMouseEnter={() => prefetchPage('abrasives')}
+          >
             Абразивы
           </Link>
-          <Link to="/applications" className="hover:text-slate-900 transition-colors">
+          <Link
+            to="/applications"
+            className="nav-item-animated hover:text-slate-900 transition-colors"
+            onMouseEnter={() => prefetchPage('applications')}
+          >
             По применению
           </Link>
-          <Link to="/docs" className="hover:text-slate-900 transition-colors">
+          <Link
+            to="/docs"
+            className="nav-item-animated hover:text-slate-900 transition-colors"
+            onMouseEnter={() => prefetchPage('docs')}
+          >
             Документы
           </Link>
-          <Link to="/contacts" className="hover:text-slate-900 transition-colors">
+          <Link
+            to="/contacts"
+            className="nav-item-animated hover:text-slate-900 transition-colors"
+            onMouseEnter={() => prefetchPage('contacts')}
+          >
             Контакты
           </Link>
         </nav>
 
         <div className="flex items-center gap-3">
-          <Link
+          <GradientButton
+            as="link"
             to="/contacts#lead"
-            className="hidden md:inline-flex items-center rounded-xl px-4 py-2 text-white text-sm font-medium shadow-sm hover:shadow-md hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200 relative overflow-hidden"
-            onMouseMove={handleButtonMouseMove}
-            onMouseLeave={handleButtonMouseLeave}
-            style={{
-              background: 'linear-gradient(90deg, #4f46e5, #7c3aed, #a855f7)'
-            }}
+            className="hidden md:inline-flex text-sm"
           >
-            <span className="relative z-10">Запросить КП</span>
-          </Link>
+            Запросить КП
+          </GradientButton>
 
           {/* Анимированная бургер-кнопка для мобильных */}
           <button
@@ -337,18 +431,14 @@ export default function Header() {
 
               {/* CTA кнопка */}
               <div className="border-t border-slate-200 pt-4 mt-4">
-                <Link
+                <GradientButton
+                  as="link"
                   to="/contacts#lead"
-                  className="block text-center rounded-xl px-4 py-3 text-white font-semibold shadow-lg transition-all duration-200 relative overflow-hidden"
                   onClick={() => setMobileMenuOpen(false)}
-                  onMouseMove={handleButtonMouseMove}
-                  onMouseLeave={handleButtonMouseLeave}
-                  style={{
-                    background: 'linear-gradient(90deg, #4f46e5, #7c3aed, #a855f7)'
-                  }}
+                  className="block text-center w-full"
                 >
-                  <span className="relative z-10">Запросить КП</span>
-                </Link>
+                  Запросить КП
+                </GradientButton>
               </div>
             </nav>
               </DialogPanel>
