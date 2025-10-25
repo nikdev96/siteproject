@@ -135,45 +135,45 @@ export default function Home() {
       </section>
 
       {/* О компании */}
-      <section id="about" className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 py-12 md:py-16 lg:py-20 text-white">
+      <section id="about" className="relative overflow-hidden bg-gradient-to-b from-white via-slate-50 to-white py-12 md:py-16 lg:py-20">
         {/* Декоративные элементы фона */}
-        <div className="absolute inset-0 opacity-10">
+        <div className="absolute inset-0 opacity-[0.03]">
           <div className="absolute top-0 left-0 w-96 h-96 bg-blue-500 rounded-full blur-3xl"></div>
           <div className="absolute bottom-0 right-0 w-96 h-96 bg-indigo-500 rounded-full blur-3xl"></div>
         </div>
 
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-8 md:gap-12 items-center">
           <FadeIn direction="left">
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent">
               КлейВуд — поставки и технологическая поддержка
             </h2>
-            <p className="mt-4 md:mt-6 text-base md:text-lg text-slate-300 leading-relaxed">
+            <p className="mt-4 md:mt-6 text-base md:text-lg text-slate-600 leading-relaxed">
               Работаем с промышленными клиентами. Помогаем подобрать оптимальные клеи и абразивы под оборудование и материалы, предоставляем TDS/SDS и рекомендации по режимам.
             </p>
             <ul className="mt-6 md:mt-8 space-y-3 md:space-y-4">
               <li className="flex items-start gap-3 group">
-                <div className="mt-1 h-5 w-5 rounded-full bg-gradient-to-br from-emerald-400 to-teal-500 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-200">
+                <div className="mt-1 h-5 w-5 rounded-full bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-200">
                   <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <span className="text-slate-300 group-hover:text-white transition-colors duration-200">Склад в РФ и своевременная логистика</span>
+                <span className="text-slate-700 group-hover:text-slate-900 transition-colors duration-200">Склад в РФ и своевременная логистика</span>
               </li>
               <li className="flex items-start gap-3 group">
-                <div className="mt-1 h-5 w-5 rounded-full bg-gradient-to-br from-emerald-400 to-teal-500 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-200">
+                <div className="mt-1 h-5 w-5 rounded-full bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-200">
                   <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <span className="text-slate-300 group-hover:text-white transition-colors duration-200">Подбор под PP/PE/дерево/металл/ткани</span>
+                <span className="text-slate-700 group-hover:text-slate-900 transition-colors duration-200">Подбор под PP/PE/дерево/металл/ткани</span>
               </li>
               <li className="flex items-start gap-3 group">
-                <div className="mt-1 h-5 w-5 rounded-full bg-gradient-to-br from-emerald-400 to-teal-500 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-200">
+                <div className="mt-1 h-5 w-5 rounded-full bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-200">
                   <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <span className="text-slate-300 group-hover:text-white transition-colors duration-200">Тестовые образцы и шлиф‑режимы</span>
+                <span className="text-slate-700 group-hover:text-slate-900 transition-colors duration-200">Тестовые образцы и шлиф‑режимы</span>
               </li>
             </ul>
           </FadeIn>
@@ -182,45 +182,53 @@ export default function Home() {
             <div className="relative">
               <div className="grid grid-cols-2 gap-4">
                 {/* Карточка 1 */}
-                <div className="group relative bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700/60 hover:border-blue-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/10 hover:-translate-y-1">
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-indigo-500/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="group relative bg-white rounded-2xl p-6 border border-slate-200 hover:border-blue-300 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/10 hover:-translate-y-1">
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   <div className="relative">
-                    <div className="text-3xl font-bold text-blue-400 mb-2">10+ лет</div>
-                    <div className="text-sm text-slate-400">в отрасли</div>
+                    <div className="text-3xl font-bold mb-2">
+                      <span className="pointer-events-none bg-gradient-to-br from-slate-900 to-slate-900 group-hover:from-blue-600 group-hover:to-indigo-600 bg-clip-text text-transparent transition-all duration-500 ease-in-out">10+ лет</span>
+                    </div>
+                    <div className="text-sm text-slate-600">в отрасли</div>
                   </div>
                 </div>
 
                 {/* Карточка 2 */}
-                <div className="group relative bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700/60 hover:border-emerald-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-emerald-500/10 hover:-translate-y-1">
-                  <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 to-teal-500/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="group relative bg-white rounded-2xl p-6 border border-slate-200 hover:border-emerald-300 transition-all duration-300 hover:shadow-xl hover:shadow-emerald-500/10 hover:-translate-y-1">
+                  <div className="absolute inset-0 bg-gradient-to-br from-emerald-50 to-teal-50 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   <div className="relative">
-                    <div className="text-3xl font-bold text-emerald-400 mb-2">Поддержка</div>
-                    <div className="text-sm text-slate-400">технолога</div>
+                    <div className="text-3xl font-bold mb-2">
+                      <span className="pointer-events-none bg-gradient-to-br from-slate-900 to-slate-900 group-hover:from-emerald-600 group-hover:to-teal-600 bg-clip-text text-transparent transition-all duration-500 ease-in-out">Поддержка</span>
+                    </div>
+                    <div className="text-sm text-slate-600">технолога</div>
                   </div>
                 </div>
 
                 {/* Карточка 3 */}
-                <div className="group relative bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700/60 hover:border-violet-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-violet-500/10 hover:-translate-y-1">
-                  <div className="absolute inset-0 bg-gradient-to-br from-violet-500/10 to-purple-500/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="group relative bg-white rounded-2xl p-6 border border-slate-200 hover:border-violet-300 transition-all duration-300 hover:shadow-xl hover:shadow-violet-500/10 hover:-translate-y-1">
+                  <div className="absolute inset-0 bg-gradient-to-br from-violet-50 to-purple-50 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   <div className="relative">
-                    <div className="text-3xl font-bold text-violet-400 mb-2">Гибкие</div>
-                    <div className="text-sm text-slate-400">условия</div>
+                    <div className="text-3xl font-bold mb-2">
+                      <span className="pointer-events-none bg-gradient-to-br from-slate-900 to-slate-900 group-hover:from-violet-600 group-hover:to-purple-600 bg-clip-text text-transparent transition-all duration-500 ease-in-out">Гибкие</span>
+                    </div>
+                    <div className="text-sm text-slate-600">условия</div>
                   </div>
                 </div>
 
                 {/* Карточка 4 */}
-                <div className="group relative bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700/60 hover:border-orange-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-orange-500/10 hover:-translate-y-1">
-                  <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 to-red-500/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="group relative bg-white rounded-2xl p-6 border border-slate-200 hover:border-orange-300 transition-all duration-300 hover:shadow-xl hover:shadow-orange-500/10 hover:-translate-y-1">
+                  <div className="absolute inset-0 bg-gradient-to-br from-orange-50 to-red-50 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   <div className="relative">
-                    <div className="text-3xl font-bold text-orange-400 mb-2">Документы</div>
-                    <div className="text-sm text-slate-400">и сертификаты</div>
+                    <div className="text-3xl font-bold mb-2">
+                      <span className="pointer-events-none bg-gradient-to-br from-slate-900 to-slate-900 group-hover:from-orange-600 group-hover:to-red-600 bg-clip-text text-transparent transition-all duration-500 ease-in-out">Документы</span>
+                    </div>
+                    <div className="text-sm text-slate-600">и сертификаты</div>
                   </div>
                 </div>
               </div>
 
               {/* Декоративные элементы */}
-              <div className="absolute -top-8 -right-8 w-32 h-32 bg-blue-500 rounded-full opacity-20 blur-3xl"></div>
-              <div className="absolute -bottom-8 -left-8 w-40 h-40 bg-indigo-500 rounded-full opacity-20 blur-3xl"></div>
+              <div className="absolute -top-8 -right-8 w-32 h-32 bg-blue-200 rounded-full opacity-30 blur-3xl pointer-events-none"></div>
+              <div className="absolute -bottom-8 -left-8 w-40 h-40 bg-indigo-200 rounded-full opacity-30 blur-3xl pointer-events-none"></div>
             </div>
           </FadeIn>
         </div>

@@ -13,13 +13,13 @@ export default function Footer() {
       </div>
 
       {/* Контент */}
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-8 md:pt-12 pb-12 sm:pb-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
 
           {/* Логотип и описание */}
           <div className="lg:col-span-1">
             <Link to="/" className="inline-flex items-center gap-3 group mb-4">
-              <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 group-hover:scale-110 transition-transform" aria-hidden="true"></div>
+              <img src="/logo1.svg" alt="КлейВуд" className="h-10 w-10 group-hover:scale-110 transition-transform" />
               <span className="text-xl font-bold">КлейВуд</span>
             </Link>
             <p className="text-slate-300 text-sm leading-relaxed mb-6">

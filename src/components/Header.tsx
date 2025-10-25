@@ -168,7 +168,7 @@ export default function Header() {
     >
       <div className="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-3 group">
-          <div className="h-9 w-9 rounded-xl bg-gradient-to-br from-blue-600 to-indigo-600 group-hover:scale-110 transition-transform" aria-hidden="true"></div>
+          <img src="/logo1.svg" alt="КлейВуд" className="h-9 w-9 group-hover:scale-110 transition-transform" />
           <span className="font-semibold text-lg tracking-tight">КлейВуд</span>
         </Link>
 
@@ -343,7 +343,7 @@ export default function Header() {
             <div className="sticky top-0 z-10 bg-white border-b border-slate-200 px-4 py-3 flex items-center justify-between shadow-sm">
               {/* Логотип */}
               <Link to="/" className="flex items-center gap-3 group" onClick={() => setMobileMenuOpen(false)}>
-                <div className="h-9 w-9 rounded-xl bg-gradient-to-br from-blue-600 to-indigo-600 group-hover:scale-110 transition-transform" aria-hidden="true"></div>
+                <img src="/logo1.svg" alt="КлейВуд" className="h-9 w-9 group-hover:scale-110 transition-transform" />
                 <span className="font-semibold text-lg tracking-tight">КлейВуд</span>
               </Link>
 
