@@ -16,6 +16,7 @@ type BaseProps = {
   children: ReactNode;
   className?: string;
   disabled?: boolean;
+  variant?: 'blue' | 'orange';
 };
 
 type ButtonProps = BaseProps &
@@ -39,8 +40,8 @@ type Props = ButtonProps | LinkProps;
  * С анимированной вращающейся рамкой при hover
  */
 export const GradientButton = forwardRef<HTMLButtonElement | HTMLAnchorElement, Props>(
-  ({ children, className = '', disabled, ...props }, ref) => {
-    const { handleMouseMove, handleMouseLeave } = useCursorGradient();
+  ({ children, className = '', disabled, variant = 'blue', ...props }, ref) => {
+    const { handleMouseMove, handleMouseLeave } = useCursorGradient(variant);
 
     const baseClasses = `
       inline-flex items-center justify-center rounded-xl px-6 py-3
@@ -52,8 +53,10 @@ export const GradientButton = forwardRef<HTMLButtonElement | HTMLAnchorElement, 
     `.trim().replace(/\s+/g, ' ');
 
     const gradientStyle = useMemo(() => ({
-      background: 'linear-gradient(90deg, #3b82f6, #2563eb, #4f46e5)'
-    }), []);
+      background: variant === 'orange'
+        ? 'linear-gradient(90deg, #ea580c, #dc2626, #c2410c)'
+        : 'linear-gradient(90deg, #3b82f6, #2563eb, #4f46e5)'
+    }), [variant]);
 
     if (props.as === 'link') {
       const {
