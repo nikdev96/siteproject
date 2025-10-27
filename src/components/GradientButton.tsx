@@ -52,7 +52,7 @@ export const GradientButton = forwardRef<HTMLButtonElement | HTMLAnchorElement, 
     `.trim().replace(/\s+/g, ' ');
 
     const gradientStyle = useMemo(() => ({
-      background: 'linear-gradient(90deg, #7dd3fc, #60a5fa, #818cf8)'
+      background: 'linear-gradient(90deg, #3b82f6, #2563eb, #4f46e5)'
     }), []);
 
     if (props.as === 'link') {

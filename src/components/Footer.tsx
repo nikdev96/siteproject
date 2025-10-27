@@ -81,7 +81,7 @@ export default function Footer() {
               </div>
               <Link
                 to="/contacts"
-                className="inline-flex items-center justify-center px-4 py-2 rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white text-sm font-medium transition-all duration-200 hover:shadow-lg hover:shadow-blue-500/50"
+                className="inline-flex items-center justify-center px-4 py-2 rounded-lg bg-gradient-to-r from-blue-700 to-indigo-700 hover:from-blue-600 hover:to-indigo-600 text-white text-sm font-medium transition-all duration-300 ease-in-out hover:shadow-lg hover:shadow-blue-500/50"
               >
                 Связаться с нами
               </Link>
