@@ -7,6 +7,8 @@ B2B сайт для поставки клеев-расплавов и абраз
 - Интерактивная форма подбора клея по материалу и применению
 - Каталог с фильтрацией по категориям (7 клеев + 6 абразивов)
 - Форма заявки на КП с валидацией (react-hook-form + zod)
+- Плавные переходы между страницами (AnimatePresence)
+- Умный префетчинг для мгновенной навигации
 - Профессиональные анимации (scroll-reveal, hover-эффекты)
 - Адаптивный дизайн для мобильных и десктопа
 - SEO оптимизация (meta-теги, sitemap, robots.txt)
@@ -43,22 +45,25 @@ npm run preview
 
 ## Производительность
 
-- **Bundle size:** 133 KB (gzip)
-- **Build time:** 1.28s
-- **Total size:** 552 KB
-- Lazy loading всех страниц
+- **Bundle size:** 142.6 KB (gzip)
+- **Build time:** ~1.6s
+- **Total size:** 456 KB
+- Оптимизированная загрузка главной страницы
+- Lazy loading остальных страниц
 - Code splitting оптимизирован
-- Prefetching при hover
+- Умный prefetching на Hero и Header
+- Плавные переходы за 0.3s (без задержек)
 
 ## Структура
 
 ```
 src/
-├── components/      # UI компоненты (GradientButton, Header, Hero)
+├── components/      # UI компоненты (GradientButton, MotionPage, Header, Hero)
 ├── pages/           # 6 страниц (Home, Catalog, Abrasives, etc.)
 ├── hooks/           # usePrefetch, useCursorGradient
 ├── data/            # JSON с продуктами (glues.json, abrasives.json)
 ├── utils/           # Валидация форм (zod схемы)
+├── layouts/         # Layout компоненты для роутинга
 └── types/           # TypeScript типы
 ```
 
@@ -75,4 +80,14 @@ npx wrangler pages deploy dist
 
 ---
 
-**Версия:** 2.0.1 • **Качество:** 10/10 ⭐
+**Версия:** 2.1.0 • **Качество:** 10/10 ⭐
+
+## Changelog
+
+### v2.1.0 (2025-10-31)
+- ✅ Исправлена структура зависимостей (react-router-dom → dependencies)
+- ✅ Оптимизирована загрузка главной страницы (убран lazy loading для Home)
+- ✅ Добавлены плавные переходы между страницами с AnimatePresence
+- ✅ Улучшен UX: убран экран загрузки при переходах
+- ✅ Добавлен префетчинг на главной странице (Hero)
+- ✅ Исправлено центрирование текста на кнопках

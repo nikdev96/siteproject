@@ -45,7 +45,6 @@ export default function ProductCard({ title, specs, onDownloadTDS }: ProductCard
             as="link"
             to="/contacts#lead"
             className="flex-1 text-sm"
-            variant="orange"
           >
             Запросить КП
           </GradientButton>

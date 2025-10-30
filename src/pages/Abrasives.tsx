@@ -1,9 +1,9 @@
 import { useState, useMemo } from 'react';
-import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import abrasivesData from '../data/abrasives.json';
 import type { Abrasive } from '../types/abrasive';
 import { FadeIn } from '../components/FadeIn';
+import { GradientButton } from '../components/GradientButton';
 
 export default function Abrasives() {
   const [selectedSeries, setSelectedSeries] = useState<string>('all');
@@ -117,13 +117,15 @@ export default function Abrasives() {
                 </div>
 
                 <div className="flex gap-2 mt-auto">
-                  <Link
+                  <GradientButton
+                    as="link"
                     to="/contacts#lead"
-                    className="flex-1 text-center rounded-lg bg-orange-600 px-3 py-2 text-white text-sm font-medium hover:bg-orange-700 hover:shadow-lg hover:scale-105 transition-all duration-200"
+                    className="flex-1 text-sm"
+                    variant="orange"
                     aria-label={`Запросить коммерческое предложение для ${abrasive.name}`}
                   >
                     Запросить КП
-                  </Link>
+                  </GradientButton>
                   {abrasive.link && (
                     <a
                       href={abrasive.link}

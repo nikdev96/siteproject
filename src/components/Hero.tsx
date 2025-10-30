@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom';
 import { GradientButton } from './GradientButton';
+import { usePrefetch } from '../hooks/usePrefetch';
 
 export default function Hero() {
+  const { prefetchPage } = usePrefetch();
+
   return (
     <>
       {/* CSS для анимированных кнопок */}
@@ -26,8 +29,9 @@ export default function Hero() {
           padding: 12px 32px;
           border-radius: 12px;
           isolation: isolate;
-          display: inline-block;
-          text-align: center;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
           font-weight: 600;
           transition: all 0.3s ease;
         }
@@ -98,13 +102,15 @@ export default function Hero() {
             <GradientButton
               as="link"
               to="/catalog"
-              className="px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg"
+              className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg"
+              onMouseEnter={() => prefetchPage('catalog')}
             >
               Открыть каталог
             </GradientButton>
             <Link
               to="/contacts"
-              className="hero-button-animated text-slate-700 hover:text-slate-900 text-base sm:text-lg"
+              className="hero-button-animated w-full sm:w-auto text-slate-700 hover:text-slate-900 text-base sm:text-lg"
+              onMouseEnter={() => prefetchPage('contacts')}
             >
               Связаться с нами
             </Link>

@@ -1,10 +1,12 @@
 import { lazy, Suspense } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import Layout from './layouts/Layout';
+import Home from './pages/Home';
+import { MotionPage } from './components/MotionPage';
 
-// Ленивая загрузка ВСЕХ страниц для максимальной оптимизации
-const Home = lazy(() => import('./pages/Home'));
+// Ленивая загрузка страниц для оптимизации
 const Catalog = lazy(() => import('./pages/Catalog'));
 const Abrasives = lazy(() => import('./pages/Abrasives'));
 const Applications = lazy(() => import('./pages/Applications'));
@@ -48,22 +50,34 @@ function LoadingFallback() {
   );
 }
 
+function AnimatedRoutes() {
+  const location = useLocation();
+
+  return (
+    <AnimatePresence mode="wait">
+      <Suspense fallback={null}>
+        <Routes location={location} key={location.pathname}>
+          <Route element={<Layout />}>
+            <Route path="/" element={<MotionPage><Home /></MotionPage>} />
+            <Route path="/catalog" element={<MotionPage><Catalog /></MotionPage>} />
+            <Route path="/abrasives" element={<MotionPage><Abrasives /></MotionPage>} />
+            <Route path="/applications" element={<MotionPage><Applications /></MotionPage>} />
+            <Route path="/docs" element={<MotionPage><Docs /></MotionPage>} />
+            <Route path="/contacts" element={<MotionPage><Contacts /></MotionPage>} />
+            <Route path="*" element={<MotionPage><NotFound /></MotionPage>} />
+          </Route>
+        </Routes>
+      </Suspense>
+    </AnimatePresence>
+  );
+}
+
 function App() {
   return (
     <ErrorBoundary>
       <BrowserRouter>
         <Suspense fallback={<LoadingFallback />}>
-          <Routes>
-            <Route element={<Layout />}>
-              <Route path="/" element={<Home />} />
-              <Route path="/catalog" element={<Catalog />} />
-              <Route path="/abrasives" element={<Abrasives />} />
-              <Route path="/applications" element={<Applications />} />
-              <Route path="/docs" element={<Docs />} />
-              <Route path="/contacts" element={<Contacts />} />
-              <Route path="*" element={<NotFound />} />
-            </Route>
-          </Routes>
+          <AnimatedRoutes />
         </Suspense>
       </BrowserRouter>
     </ErrorBoundary>
